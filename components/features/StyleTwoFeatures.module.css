@@ -1,0 +1,198 @@
+/* StyleTwoFeatures Component Styles */
+.featuresSection {
+  padding: 4rem 0;
+  background-color: #f8fafc;
+}
+
+.featuresContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.featuresLeft {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.featureItem {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.featureItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.featureContent {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.featureIcon {
+  flex-shrink: 0;
+  font-size: 2.5rem;
+  color: #1a3d7d;
+  line-height: 1;
+}
+
+.featureText {
+  flex: 1;
+}
+
+.featureTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1a3d7d;
+  margin-bottom: 0.75rem;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.featureDescription {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #64748b;
+  font-family: 'Public Sans', sans-serif;
+}
+
+/* Opening Hours Section */
+.openingHoursCard {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  height: fit-content;
+}
+
+.openingHoursIcon {
+  display: block;
+  font-size: 2.5rem;
+  color: #1a3d7d;
+  margin-bottom: 1rem;
+}
+
+.openingHoursTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a3d7d;
+  margin-bottom: 1.5rem;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.openingHoursList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.openingHoursItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.openingHoursItem:last-child {
+  border-bottom: none;
+}
+
+.dayLabel {
+  font-weight: 500;
+  color: #374151;
+  font-family: 'Public Sans', sans-serif;
+}
+
+.timeLabel {
+  color: #1a3d7d;
+  font-weight: 600;
+  font-family: 'Public Sans', sans-serif;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .featuresLeft {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .featuresSection {
+    padding: 2rem 0;
+  }
+  
+  .featuresContainer {
+    padding: 0 0.75rem;
+  }
+  
+  .featureItem {
+    padding: 1.25rem;
+  }
+  
+  .featureContent {
+    gap: 0.75rem;
+  }
+  
+  .featureIcon {
+    font-size: 2rem;
+  }
+  
+  .featureTitle {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .featureDescription {
+    font-size: 0.8125rem;
+  }
+  
+  .openingHoursCard {
+    padding: 1.25rem;
+  }
+  
+  .openingHoursIcon {
+    font-size: 2rem;
+  }
+  
+  .openingHoursTitle {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+  }
+  
+  .openingHoursItem {
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .featureContent {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .featureIcon {
+    margin-bottom: 0.5rem;
+  }
+}

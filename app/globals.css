@@ -1,0 +1,658 @@
+/* Import DakshinRehab Brand Fonts FIRST */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+/* DakshinRehab Tailwind CSS Configuration */
+@tailwind base;
+@tailwind components; 
+@tailwind utilities;
+
+/* DakshinRehab Base Styles */
+@layer base {
+  /* Body and Typography */
+  body {
+    font-family: 'Inter', sans-serif;
+    @apply text-sm text-dakshin-primary;
+    line-height: 1.6; /* Optimized for Inter's letter spacing */
+  }
+  
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-semibold text-dakshin-primary;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Paragraph text */
+  p {
+    @apply text-dakshin-text-light text-sm;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* Lists */
+  ul {
+    @apply p-0 m-0 list-none;
+  }
+  
+  /* Links */
+  a,
+  a:hover,
+  a:focus {
+    @apply no-underline text-white;
+  }
+  
+  /* Selection */
+  ::selection {
+    @apply bg-cyan-400 text-white;
+    text-shadow: none;
+  }
+  
+  ::-moz-selection {
+    @apply bg-cyan-400 text-white;
+    text-shadow: none;
+  }
+  
+  /* Remove arrows in number input fields */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  
+  /* Global transition */
+  * {
+    @apply transition-all duration-300 ease-in-out;
+    outline: none;
+  }
+}
+
+/* DakshinRehab Component Styles */
+@layer components {
+  /* Button Components */
+  .btn-dakshin-primary {
+    @apply bg-dakshin-primary hover:bg-dakshin-primary/90 text-white px-6 py-3 rounded-sm font-semibold transition-all duration-400;
+    @apply inline-block cursor-pointer border-none text-center;
+    min-width: 180px;
+    height: 55px;
+    line-height: 55px;
+    padding: 0 25px;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .btn-dakshin-primary::after {
+    content: '';
+    @apply bg-dakshin-primary absolute inset-0 -z-10;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform 0.4s ease-in-out;
+  }
+  
+  .btn-dakshin-primary:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+  
+  .btn-dakshin-secondary {
+    @apply bg-dakshin-secondary hover:bg-dakshin-secondary/90 text-white px-6 py-3 rounded-sm font-semibold transition-colors duration-300;
+  }
+  
+  .btn-dakshin-accent {
+    @apply bg-dakshin-accent hover:bg-dakshin-accent/90 text-white px-6 py-3 rounded-sm font-semibold transition-colors duration-300;
+  }
+  
+  .btn-dakshin-outline {
+    @apply border-2 border-dakshin-primary text-dakshin-primary hover:bg-dakshin-primary hover:text-white px-6 py-3 rounded-sm font-semibold transition-colors duration-300;
+  }
+  
+  /* Legacy Button Support (for gradual migration) */
+  .btn-1 {
+    @apply btn-dakshin-primary;
+  }
+  
+  /* Container Components */
+  .dakshin-container {
+    @apply container mx-auto px-4;
+  }
+  
+  /* Layout Components */
+  .dakshin-section {
+    @apply py-100; /* Uses custom spacing from tailwind.config.js */
+  }
+  
+  .dakshin-section-asymmetric {
+    @apply py-100 pb-70; /* py-100-70 equivalent */
+  }
+  
+  /* Overlay Components */
+  .dakshin-overlay {
+    @apply absolute inset-0;
+    background-color: rgb(255 255 255 / 8%);
+  }
+  
+  .dakshin-overlay-blue {
+    @apply absolute inset-0;
+    background-color: rgb(26 61 125 / 90%);
+  }
+  
+  .dakshin-overlay-accent {
+    @apply absolute inset-0;  
+    background-color: rgb(19 173 229 / 90%);
+  }
+  
+  .dakshin-overlay-light {
+    @apply absolute inset-0;
+    background-color: rgb(255 255 255 / 95%);
+  }
+  
+  /* Card Components */
+  .dakshin-card {
+    @apply bg-white rounded-lg shadow-dakshin p-6;
+  }
+  
+  .dakshin-card-hover {
+    @apply dakshin-card hover:shadow-dakshin-lg transition-shadow duration-300;
+  }
+  
+  /* Form Components */
+  .dakshin-input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-sm;
+    @apply focus:ring-2 focus:ring-dakshin-accent focus:border-dakshin-accent;
+    @apply transition-colors duration-200;
+  }
+  
+  .dakshin-textarea {
+    @apply dakshin-input min-h-32 resize-y;
+  }
+  
+  /* Specialty Service Cards */
+  .specialty-card {
+    @apply dakshin-card-hover;
+  }
+  
+  /* Legacy Classes (for gradual migration) */
+  .overlay {
+    @apply dakshin-overlay;
+  }
+  
+  .overlay-2 {
+    @apply dakshin-overlay-blue;
+  }
+  
+  .overlay-3 {
+    @apply dakshin-overlay-accent;
+  }
+  
+  .overlay-4 {
+    @apply dakshin-overlay-light;
+  }
+}
+
+/* DakshinRehab Utility Classes */
+@layer utilities {
+  /* Legacy Spacing Support (for gradual migration) */
+  .py-100 {
+    padding: 100px 0;
+  }
+  
+  .py-100-70 {
+    padding: 100px 0 70px 0;
+  }
+  
+  .ml-30 {
+    margin-left: 30px;
+  }
+  
+  .mr-20 {
+    margin-right: 20px;
+  }
+  
+  .ml-20 {
+    margin-left: 20px;
+  }
+  
+  .padding-0 {
+    padding: 0;
+  }
+  
+  /* Display Table Utilities (legacy support) */
+  .display-table {
+    display: table;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  
+  .table-cell {
+    display: table-cell;
+    vertical-align: middle;
+    min-height: 100%;
+    height: 700px;
+  }
+  
+  /* Text Utilities */
+  .text-dakshin-primary {
+    color: #1A3D7D;
+  }
+  
+  .text-dakshin-secondary {
+    color: #2E8B57;
+  }
+  
+  .text-dakshin-accent {
+    color: #FF6B35;
+  }
+  
+  .text-dakshin-neuro {
+    color: #6A5ACD;
+  }
+  
+  /* Background Utilities */
+  .bg-dakshin-primary {
+    background-color: #1A3D7D;
+  }
+  
+  .bg-dakshin-secondary {
+    background-color: #2E8B57;
+  }
+  
+  .bg-dakshin-accent {
+    background-color: #FF6B35;
+  }
+  
+  .bg-dakshin-neuro {
+    background-color: #6A5ACD;
+  }
+}
+
+/* DakshinRehab Responsive Utilities */
+@layer utilities {
+  .dakshin-text-responsive {
+    @apply text-sm md:text-base lg:text-lg;
+  }
+  
+  .dakshin-heading-responsive {
+    @apply text-xl md:text-2xl lg:text-3xl;
+  }
+}
+
+  /* Additional DakshinRehab Button Styles (for legacy support) */
+  .btn-2 {
+    @apply btn-dakshin-primary;
+    background-color: #1A3D7D; /* Override with DakshinRehab primary */
+  }
+
+  /* Features Section Specific Styles */
+  .features {
+    @apply bg-gray-50;
+  }
+  
+  .btn-2::after {
+    background-color: #13ADE5; /* DakshinRehab accent color */
+  }
+  
+  .btn-3 {
+    @apply bg-white text-dakshin-accent border-2 border-dakshin-accent hover:bg-dakshin-accent hover:text-white;
+    @apply px-6 py-3 rounded-sm font-semibold transition-all duration-400 inline-block cursor-pointer text-center;
+    min-width: 180px;
+    height: 55px;
+    line-height: 55px;
+    padding: 0 25px;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  
+  .btn-5 {
+    @apply bg-white text-dakshin-accent hover:text-white hover:bg-dakshin-accent;
+    @apply px-6 py-3 rounded-sm font-semibold transition-colors duration-300 inline-block cursor-pointer text-center;
+    min-width: 180px;
+    height: 55px;
+    line-height: 55px;
+    padding: 0 25px;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+  /* DakshinRehab Form Components */
+  .dakshin-input {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-sm;
+    @apply focus:ring-2 focus:ring-dakshin-accent focus:border-dakshin-accent;
+    @apply transition-colors duration-200;
+    @apply text-dakshin-text placeholder-gray-400;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 14px;
+  }
+  
+  .dakshin-textarea {
+    @apply dakshin-input min-h-32 resize-y;
+  }
+  
+  .dakshin-select {
+    @apply dakshin-input;
+    @apply bg-white bg-no-repeat;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+  }
+  
+  .dakshin-checkbox {
+    @apply w-4 h-4 text-dakshin-accent bg-gray-100 border-gray-300 rounded;
+    @apply focus:ring-dakshin-accent focus:ring-2;
+  }
+  
+  .dakshin-radio {
+    @apply w-4 h-4 text-dakshin-accent bg-gray-100 border-gray-300;
+    @apply focus:ring-dakshin-accent focus:ring-2;
+  }
+  
+  .dakshin-label {
+    @apply block text-dakshin-text font-medium mb-2;
+    font-family: 'Public Sans', sans-serif;
+  }
+  
+  .dakshin-form-group {
+    @apply mb-4;
+  }
+  
+  .dakshin-form-error {
+    @apply text-red-500 text-sm mt-1;
+  }
+  
+  /* Legacy form support */
+  .inner-add-comments-box input,
+  .inner-add-comments-box textarea {
+    @apply dakshin-input;
+  }
+
+  /* DakshinRehab Card Components */
+  .dakshin-card {
+    @apply bg-white rounded-lg shadow-dakshin p-6 transition-shadow duration-300;
+  }
+  
+  .dakshin-card-hover {
+    @apply dakshin-card hover:shadow-dakshin-lg transform hover:-translate-y-1;
+  }
+  
+  .dakshin-card-header {
+    @apply border-b border-gray-200 pb-4 mb-4;
+  }
+  
+  .dakshin-card-body {
+    @apply space-y-4;
+  }
+  
+  .dakshin-card-footer {
+    @apply border-t border-gray-200 pt-4 mt-4;
+  }
+
+  /* Features Section Animations and Styles */
+  @keyframes icon-scale {
+    0% {
+      transform: scale(1);
+    }
+    25% {
+      transform: scale(0.75);
+    }
+    50% {
+      transform: scale(1);
+    }
+    75% {
+      transform: scale(0.75);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .features-item:hover .features-icon {
+    animation: icon-scale 2.5s infinite;
+  }
+  
+  /* Flaticon font support for pseudo-elements */
+  .features-item::before {
+    font-family: 'flaticon' !important;
+  }
+  
+  /* Bootstrap-like CSS classes for original layout support */
+  .row {
+    @apply flex flex-wrap;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+  
+  .col-lg-4 {
+    @apply flex-none w-full;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  @media (min-width: 1024px) {
+    .col-lg-4 {
+      width: 33.333333%;
+    }
+  }
+  
+  /* Bootstrap grid classes for testimonial section */
+  .col-md-5 {
+    @apply flex-none w-full;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .col-md-7 {
+    @apply flex-none w-full;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  @media (min-width: 768px) {
+    .col-md-5 {
+      width: 41.666667%; /* 5/12 */
+    }
+    
+    .col-md-7 {
+      width: 58.333333%; /* 7/12 */
+    }
+  }
+  
+  .container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  .padding-0 {
+    padding: 0 !important;
+  }
+  
+  /* Mobile responsive styles for testimonial */
+  @media (max-width: 768px) {
+    .testimonial .col-md-5,
+    .testimonial .col-md-7 {
+      width: 100% !important;
+      flex: none !important;
+    }
+    
+    .testimonial .container-fluid {
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 540px;
+    }
+    
+    .testimonial .col-md-5.padding-0,
+    .testimonial .col-md-7.padding-0 {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+  
+  /* Mobile testimonial text content spacing */
+  @media (max-width: 767.98px) {
+    .testimonial .content-text-box {
+      padding-left: 35px !important;
+      padding-right: 35px !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+    
+    .testimonial .testimonial-carousel-item {
+      padding-left: 30px !important;
+      padding-right: 30px !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+    
+    .testimonial .swiper-slide {
+      padding-left: 25px !important;
+      padding-right: 25px !important;
+    }
+    
+    .testimonial .testimonial-doctor {
+      padding-left: 35px !important;
+      padding-right: 35px !important;
+    }
+    
+    .testimonial .testimonial-doctor h4 {
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+    }
+    
+    /* Additional selectors to ensure text content has proper spacing */
+    .testimonial .swiper-wrapper {
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+    }
+    
+    .testimonial p {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+  }
+  
+  
+  /* Bootstrap Testimonial Styles */
+  .testimonial {
+    position: relative;
+    background-size: cover !important;
+    background-position: center !important;
+  }
+  
+  .testimonial .overlay-2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(26, 61, 125, 0.9) 0%, rgba(19, 173, 229, 0.8) 100%);
+    z-index: 1;
+  }
+  
+  .testimonial .container-fluid {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .testimonial .testimonial-img-box,
+  .testimonial .testimonial-text-box {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    min-height: 500px;
+  }
+  
+  .testimonial .testimonial-img-box .img-box {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    margin-right: 2rem;
+  }
+  
+  .testimonial .testimonial-carousel-item {
+    padding: 100px 100px 100px 0;
+    color: white;
+  }
+  
+  .testimonial .testimonial-carousel-item .quote {
+    font-size: 60px;
+    line-height: 1;
+    color: #FFF;
+    margin-bottom: 30px;
+    display: block;
+  }
+  
+  .testimonial .testimonial-carousel-item .content-text-box {
+    position: relative;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 34px;
+    line-height: 1.4;
+    font-weight: 600;
+    color: #FFF;
+    margin-bottom: 30px;
+    text-transform: capitalize;
+  }
+  
+  .testimonial .testimonial-carousel-item .testimonial-doctor h4 {
+    text-transform: capitalize;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.5px;
+    color: #FFF;
+    margin-bottom: 12px;
+  }
+  
+  .testimonial .testimonial-carousel-item .testimonial-doctor span {
+    display: inline-block;
+    line-height: 1.2;
+    font-weight: 600;
+    color: #FFF;
+    text-transform: capitalize;
+    font-size: 14px;
+  }
+  
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    .testimonial .testimonial-img-box {
+      display: none;
+    }
+    
+    .testimonial .testimonial-carousel-item {
+      padding: 60px 30px;
+      text-align: center;
+    }
+    
+    .testimonial .testimonial-carousel-item .content-text-box {
+      font-size: 24px;
+    }
+    
+    .testimonial .testimonial-carousel-item .testimonial-doctor h4 {
+      font-size: 20px;
+    }
+  }
+  
+  /* Raj dhani font support */
+  .font-rajdhani {
+    font-family: 'Rajdhani', sans-serif;
+  }
